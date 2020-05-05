@@ -11,6 +11,8 @@ import java.util.Arrays;
  * @author Petr Arsentev (parsentev@yandex.ru)
  * @version $Id$
  * @since 0.1
+ * @author Anton Kobrusev (akobrusev@gmail.ru)
+ * Доработан метод isWin()
  */
 public class Logic {
     private final int size;
@@ -71,6 +73,27 @@ public class Logic {
     public boolean isWin() {
         int[][] table = this.convert();
         boolean result = false;
+        boolean row = true;
+        boolean cell = true;
+        boolean d = false;
+        for (int i = 0; i < table.length; i++) {
+            if (table[i][i] == 1) { // т.к. массив квадратный (5*5)проверяем по диагонали индексы массива.
+                for (int j = 0; j < table.length; j++) {
+                    if (table[j][i] != 1) { // проверка строки по горизонтали
+                        row = false;
+                        break;
+                    }
+                }
+                for (int j = 0; j < table.length; j++) {
+                    if (table[i][j] != 1) { // проверка строки по вертикали
+                        cell = false;
+                        break;
+                    }
+                }
+            d = true; // если условие проверки по  диагонали сработает, то boolean d меняется на true
+            }
+        }
+        result = (row || cell) && d;
         return result;
     }
 
