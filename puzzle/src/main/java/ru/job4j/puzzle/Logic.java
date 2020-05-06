@@ -70,7 +70,9 @@ public class Logic {
             }
         }
         return rst;
+
     }
+
     public static boolean monoHorizontal(int[][] table, int row) {
         boolean result = true;
         for (int i = 0; i < table.length; i++) {
@@ -81,6 +83,7 @@ public class Logic {
         }
         return result;
     }
+
     public static boolean monoVertical(int[][] table, int column) {
         boolean result = true;
         for (int i = 0; i < table.length; i++) {
@@ -103,7 +106,6 @@ public class Logic {
                 }
             }
         }
-
         return result;
     }
 
